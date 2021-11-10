@@ -21,13 +21,13 @@ void ADS795X::enterProgramSequenceAuto1(void)
 
     digitalWrite(slave_select_pin, LOW);
 
-    _spiPort->transfer(CMD_AUTO1_PROGRAMMING_SEQUENCE & HIGH_BYTE);
+    _spiPort->transfer((uint8_t) (CMD_AUTO1_PROGRAMMING_SEQUENCE & HIGH_BYTE));
 
-    _spiPort->transfer(CMD_AUTO1_PROGRAMMING_SEQUENCE & LOW_BYTE);
+    _spiPort->transfer((uint8_t) (CMD_AUTO1_PROGRAMMING_SEQUENCE & LOW_BYTE));
 
-    _spiPort->transfer(auto1_active_channels & HIGH_BYTE);
+    _spiPort->transfer((uint8_t) (auto1_active_channels & HIGH_BYTE));
     
-    _spiPort->transfer(auto1_active_channels & LOW_BYTE);
+    _spiPort->transfer((uint8_t) (auto1_active_channels & LOW_BYTE));
 
     digitalWrite(slave_select_pin, HIGH);
 
@@ -41,9 +41,9 @@ void ADS795X::enterProgramSequenceAuto2(void)
 
     digitalWrite(slave_select_pin, LOW);
 
-    _spiPort->transfer(cmd & HIGH_BYTE);
+    _spiPort->transfer((uint8_t) (cmd & HIGH_BYTE));
 
-    _spiPort->transfer(cmd & LOW_BYTE);
+    _spiPort->transfer((uint8_t) (cmd & LOW_BYTE));
 
     digitalWrite(slave_select_pin, HIGH);
 
@@ -94,9 +94,9 @@ void ADS795X::setFunctionalMode(controlRegisterMode regValue)
     
     digitalWrite(slave_select_pin, LOW);
 
-    _spiPort->transfer(regValue.cmd & HIGH_BYTE);
+    _spiPort->transfer((uint8_t) (regValue.cmd & HIGH_BYTE));
 
-    _spiPort->transfer(regValue.cmd & LOW_BYTE);
+    _spiPort->transfer((uint8_t) (regValue.cmd & LOW_BYTE));
 
     digitalWrite(slave_select_pin, HIGH);
 
@@ -131,9 +131,9 @@ uint16_t ADS795X::readData(uint8_t channel)
     
     digitalWrite(slave_select_pin, LOW);
 
-    data_rx = _spiPort->transfer(regValue.cmd & HIGH_BYTE);
+    data_rx = _spiPort->transfer((uint8_t) (regValue.cmd & HIGH_BYTE));
 
-    data_rx |= _spiPort->transfer(regValue.cmd & LOW_BYTE) << 8;
+    data_rx |= _spiPort->transfer((uint8_t) (regValue.cmd & LOW_BYTE)) << 8;
 
     digitalWrite(slave_select_pin, HIGH);
 
