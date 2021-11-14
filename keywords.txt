@@ -1,0 +1,27 @@
+#######################################
+# Syntax Coloring Map 
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+ADS795X		KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+initCommunication	KEYWORD2
+setFunctionalMode	KEYWORD2
+readData		KEYWORD2
+
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+HIGH_BYTE                               LITERAL1 
+LOW_BYTE                                LITERAL1   
+CMD_AUTO1_PROGRAMMING_SEQUENCE		LITERAL1
+CMD_AUTO2_PROGRAMMING_SEQUENCE          LITERAL1              
